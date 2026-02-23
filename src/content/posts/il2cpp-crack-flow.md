@@ -1,6 +1,6 @@
 ---
 title: 常规无加密 IL2CPP 手游破解流程
-published: 2026-02-24
+published: 2026-02-22
 description: 从安装包到 Unity 工程与 IDA 分析的通用流程，适用于未对 global-metadata 与 libil2cpp 做加密的 IL2CPP 手游。
 tags: [逆向, IL2CPP, Unity, 手游, Il2CppDumper, AssetRipper, IDA]
 category: 逆向
