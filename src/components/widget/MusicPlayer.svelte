@@ -2,8 +2,8 @@
 import Icon from "@iconify/svelte";
 import { onDestroy, onMount } from "svelte";
 import { slide } from "svelte/transition";
-// 从配置文件中导入音乐播放器配置
-import { musicPlayerConfig } from "../../config";
+// 从配置文件中导入音乐播放器配置与站点 favicon（用于默认封面，避免依赖 favicon.ico 导致 404 影响歌单加载）
+import { musicPlayerConfig, siteConfig } from "../../config";
 // 导入国际化相关的 Key 和 i18n 实例
 import Key from "../../i18n/i18nKey";
 import { i18n } from "../../i18n/translation";
@@ -52,11 +52,14 @@ let errorMessage = "";
 // 是否显示错误信息，默认为 false
 let showError = false;
 
-// 当前歌曲信息（默认封面使用模板原 favicon.ico，站点标签页仍用 config 中的 favicon）
+// 默认封面使用站点头像（与顶栏一致），正常播放时会显示歌曲封面；避免依赖 favicon.ico 导致 404 影响歌单加载
+const defaultCover =
+	siteConfig.navbarTitle?.icon ??
+	(siteConfig.favicon?.length > 0 ? siteConfig.favicon[0].src : "/favicon/favicon.ico");
 let currentSong = {
 	title: "Sample Song",
 	artist: "Sample Artist",
-	cover: "/favicon/favicon.ico",
+	cover: defaultCover,
 	url: "",
 	duration: 0,
 };
