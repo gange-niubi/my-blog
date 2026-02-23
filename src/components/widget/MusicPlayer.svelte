@@ -52,7 +52,7 @@ let errorMessage = "";
 // 是否显示错误信息，默认为 false
 let showError = false;
 
-// 当前歌曲信息
+// 当前歌曲信息（默认封面使用模板原 favicon.ico，站点标签页仍用 config 中的 favicon）
 let currentSong = {
 	title: "Sample Song",
 	artist: "Sample Artist",
