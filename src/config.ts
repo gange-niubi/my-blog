@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
 	title: "晶晶的小站",
 	subtitle: "", // 留空则标签页只显示「晶晶的小站」
 	siteURL: "https://jingjingya.xyz/", // 请替换为你的站点URL，以斜杠结尾
-	siteStartDate: "2025-02-23", // 站点开始运行日期，用于站点统计组件计算运行天数
+	siteStartDate: "2026-02-23", // 站点开始运行日期，用于站点统计组件计算运行天数
 
 	timeZone: SITE_TIMEZONE,
 
@@ -48,16 +48,15 @@ export const siteConfig: SiteConfig = {
 		devices: true, // 设备页面开关
 	},
 
-	// 顶栏标题配置（使用文字，去掉模板 Logo 框）
+	// 顶栏标题配置（使用自己的头像作为图标与 Logo）
 	navbarTitle: {
 		// 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
 		mode: "text-icon",
 		// 顶栏标题文本
 		text: "晶晶的小站",
-		// 顶栏标题图标路径
-		icon: "assets/home/home.png",
-		// 网站Logo图片路径（text-icon 模式下不显示）
-		logo: "assets/home/default-logo.png",
+		// 顶栏图标与 Logo 均使用自己的头像
+		icon: "/assets/home/avatar.png",
+		logo: "/assets/home/avatar.png",
 	},
 
 	// 页面自动缩放配置
