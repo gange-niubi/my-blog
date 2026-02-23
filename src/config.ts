@@ -119,22 +119,24 @@ export const siteConfig: SiteConfig = {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
 			desktop: [
-				"/assets/desktop-banner/1.webp",
-				"/assets/desktop-banner/2.webp",
-				"/assets/desktop-banner/3.webp",
-				"/assets/desktop-banner/4.webp",
-				"/assets/desktop-banner/5.webp",
-				"/assets/desktop-banner/6.webp",
-			], // 桌面横幅图片
+				"/assets/desktop-banner/1.jpg",
+				"/assets/desktop-banner/2.jpg",
+				"/assets/desktop-banner/3.png",
+				"/assets/desktop-banner/4.png",
+				"/assets/desktop-banner/5.png",
+				"/assets/desktop-banner/6.png",
+				"/assets/desktop-banner/7.jpg",
+			], // 桌面横幅轮播（来自素材目录）
 			mobile: [
-				"/assets/mobile-banner/1.webp",
-				"/assets/mobile-banner/2.webp",
-				"/assets/mobile-banner/3.webp",
-				"/assets/mobile-banner/4.webp",
-				"/assets/mobile-banner/5.webp",
-				"/assets/mobile-banner/6.webp",
-			], // 移动横幅图片
-		}, // 使用本地横幅图片
+				"/assets/mobile-banner/1.jpg",
+				"/assets/mobile-banner/2.jpg",
+				"/assets/mobile-banner/3.png",
+				"/assets/mobile-banner/4.png",
+				"/assets/mobile-banner/5.png",
+				"/assets/mobile-banner/6.png",
+				"/assets/mobile-banner/7.jpg",
+			], // 移动端横幅轮播
+		},
 
 		position: "center", // 等同于 object-position，仅支持 'top', 'center', 'bottom'。默认为 'center'
 
@@ -246,6 +248,31 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		LinkPreset.Archive,
 		{
+			name: "链接",
+			url: "#",
+			icon: "material-symbols:link",
+			children: [
+				{
+					name: "Bilibili",
+					url: "https://space.bilibili.com/243850243",
+					external: true,
+					icon: "fa7-brands:bilibili",
+				},
+				{
+					name: "Codeforces",
+					url: "https://codeforces.com/profile/jingjingya",
+					external: true,
+					icon: "simple-icons:codeforces",
+				},
+				{
+					name: "GitHub",
+					url: "https://github.com/gange-niubi",
+					external: true,
+					icon: "fa7-brands:github",
+				},
+			],
+		},
+		{
 			name: "关于",
 			url: "/about/",
 			icon: "material-symbols:person",
@@ -268,14 +295,30 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp",
+	avatar: "assets/images/avatar.png",
 	name: "晶晶",
 	bio: "欢迎来玩～",
 	typewriter: {
 		enable: false,
 		speed: 80,
 	},
-	links: [], // 可在此处添加你的社交链接
+	links: [
+		{
+			name: "Bilibili",
+			icon: "fa7-brands:bilibili",
+			url: "https://space.bilibili.com/243850243",
+		},
+		{
+			name: "Codeforces",
+			icon: "simple-icons:codeforces",
+			url: "https://codeforces.com/profile/jingjingya",
+		},
+		{
+			name: "GitHub",
+			icon: "fa7-brands:github",
+			url: "https://github.com/gange-niubi",
+		},
+	],
 };
 
 export const licenseConfig: LicenseConfig = {
