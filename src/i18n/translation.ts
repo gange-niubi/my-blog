@@ -9,7 +9,8 @@ export type Translation = {
 	[K in I18nKey]: string;
 };
 
-const defaultTranslation = en;
+// 站点仅使用中文与日文，默认回退到中文
+const defaultTranslation = zh_CN;
 
 const map: { [key: string]: Translation } = {
 	en: en,
@@ -17,7 +18,9 @@ const map: { [key: string]: Translation } = {
 	en_gb: en,
 	en_au: en,
 	zh_cn: zh_CN,
+	"zh-cn": zh_CN,
 	zh_tw: zh_TW,
+	"zh-tw": zh_TW,
 	ja: ja,
 	ja_jp: ja,
 };

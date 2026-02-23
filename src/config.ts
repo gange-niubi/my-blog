@@ -22,8 +22,8 @@ import { LinkPreset } from "./types/config";
 const SITE_LANG = "zh-CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UTC+8
 export const siteConfig: SiteConfig = {
-	title: "静境雅",
-	subtitle: "基于 Mizuki 的个人博客",
+	title: "晶晶的小站",
+	subtitle: "", // 留空则标签页只显示「晶晶的小站」
 	siteURL: "https://jingjingya.xyz/", // 请替换为你的站点URL，以斜杠结尾
 	siteStartDate: "2025-02-23", // 站点开始运行日期，用于站点统计组件计算运行天数
 
@@ -38,9 +38,9 @@ export const siteConfig: SiteConfig = {
 
 	// 特色页面开关配置（关闭未使用的页面有助于提升 SEO，关闭后请记得在 navbarConfig 中移除对应链接）
 	featurePages: {
-		anime: true, // 番剧页面开关
-		diary: true, // 日记页面开关
-		friends: true, // 友链页面开关
+		anime: true,
+		diary: true,
+		friends: false, // 友链已从导航移除，需要时可在 navbar 中加回并设为 true
 		projects: true, // 项目页面开关
 		skills: true, // 技能页面开关
 		timeline: true, // 时间线页面开关
@@ -48,15 +48,15 @@ export const siteConfig: SiteConfig = {
 		devices: true, // 设备页面开关
 	},
 
-	// 顶栏标题配置
+	// 顶栏标题配置（使用文字，去掉模板 Logo 框）
 	navbarTitle: {
 		// 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
-		mode: "logo",
+		mode: "text-icon",
 		// 顶栏标题文本
-		text: "静境雅",
-		// 顶栏标题图标路径，默认使用 public/assets/home/home.png
+		text: "晶晶的小站",
+		// 顶栏标题图标路径
 		icon: "assets/home/home.png",
-		// 网站Logo图片路径
+		// 网站Logo图片路径（text-icon 模式下不显示）
 		logo: "assets/home/default-logo.png",
 	},
 
@@ -159,23 +159,7 @@ export const siteConfig: SiteConfig = {
 		// 请自行搭建API
 
 		homeText: {
-			enable: true, // 在主页显示自定义文本
-			title: "わたしの部屋", // 主页横幅主标题
-
-			subtitle: [
-				"特別なことはないけど、君がいると十分です",
-				"今でもあなたは私の光",
-				"君ってさ、知らないうちに私の毎日になってたよ",
-				"君と話すと、なんか毎日がちょっと楽しくなるんだ",
-				"今日はなんでもない日。でも、ちょっとだけいい日",
-			],
-			typewriter: {
-				enable: true, // 启用副标题打字机效果
-
-				speed: 100, // 打字速度（毫秒）
-				deleteSpeed: 50, // 删除速度（毫秒）
-				pauseTime: 2000, // 完全显示后的暂停时间（毫秒）
-			},
+			enable: false, // 关闭首页横幅文字框，保持简洁
 		},
 
 		credit: {
@@ -261,137 +245,37 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
-		// 支持自定义导航栏链接，支持多级菜单
 		{
-			name: "Links",
-			url: "/links/",
-			icon: "material-symbols:link",
-			children: [
-				{
-					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
-					external: true,
-					icon: "fa7-brands:github",
-				},
-				{
-					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
-					external: true,
-					icon: "fa7-brands:bilibili",
-				},
-				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
-					external: true,
-					icon: "mdi:git",
-				},
-			],
-		},
-		{
-			name: "My",
-			url: "/content/",
+			name: "关于",
+			url: "/about/",
 			icon: "material-symbols:person",
-			children: [
-				{
-					name: "Anime",
-					url: "/anime/",
-					icon: "material-symbols:movie",
-				},
-				{
-					name: "Diary",
-					url: "/diary/",
-					icon: "material-symbols:book",
-				},
-				{
-					name: "Gallery",
-					url: "/albums/",
-					icon: "material-symbols:photo-library",
-				},
-				{
-					name: "Devices",
-					url: "devices/",
-					icon: "material-symbols:devices",
-					external: false,
-				},
-			],
 		},
 		{
-			name: "About",
-			url: "/content/",
-			icon: "material-symbols:info",
-			children: [
-				{
-					name: "About",
-					url: "/about/",
-					icon: "material-symbols:person",
-				},
-				{
-					name: "Friends",
-					url: "/friends/",
-					icon: "material-symbols:group",
-				},
-			],
-		},
-		{
-			name: "Others",
+			name: "更多",
 			url: "#",
 			icon: "material-symbols:more-horiz",
 			children: [
-				{
-					name: "Projects",
-					url: "/projects/",
-					icon: "material-symbols:work",
-				},
-				{
-					name: "Skills",
-					url: "/skills/",
-					icon: "material-symbols:psychology",
-				},
-				{
-					name: "Timeline",
-					url: "/timeline/",
-					icon: "material-symbols:timeline",
-				},
+				LinkPreset.Diary,
+				LinkPreset.Albums,
+				LinkPreset.Projects,
+				LinkPreset.Skills,
+				LinkPreset.Timeline,
+				LinkPreset.Anime,
+				{ name: "设备", url: "/devices/", icon: "material-symbols:devices" },
 			],
 		},
 	],
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "まつざか ゆき",
-	bio: "世界は大きい、君は行かなければならない",
+	avatar: "assets/images/avatar.webp",
+	name: "晶晶",
+	bio: "欢迎来玩～",
 	typewriter: {
-		enable: true, // 启用个人简介打字机效果
-		speed: 80, // 打字速度（毫秒）
+		enable: false,
+		speed: 80,
 	},
-	links: [
-		{
-			name: "Bilibili",
-			icon: "fa7-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
-		},
-		{
-			name: "Gitee",
-			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
-		},
-		{
-			name: "GitHub",
-			icon: "fa7-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
-		},
-		{
-			name: "Codeberg",
-			icon: "simple-icons:codeberg",
-			url: "https://codeberg.org",
-		},
-		{
-			name: "Discord",
-			icon: "fa7-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
-		},
-	],
+	links: [], // 可在此处添加你的社交链接
 };
 
 export const licenseConfig: LicenseConfig = {
