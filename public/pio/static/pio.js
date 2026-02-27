@@ -85,10 +85,9 @@ var Paul_Pio = function (prop) {
 				dialog.classList.remove("active");
 			}, options.time || 3000);
 		},
-		// 移除方法
+		// 移除方法（仅本次关闭，不持久化；刷新或重新访问会再次显示）
 		destroy: () => {
 			this.initHidden();
-			localStorage.setItem("posterGirl", "0");
 		},
 	};
 
@@ -340,13 +339,12 @@ var Paul_Pio = function (prop) {
 
 		elements.show.onclick = () => {
 			current.body.classList.remove("hidden");
-			localStorage.setItem("posterGirl", "1");
-
 			this.init();
 		};
 	};
 
-	localStorage.getItem("posterGirl") === "0" ? this.initHidden() : this.init();
+	// 每次加载页面都显示看板娘，不读取上次的关闭状态
+	this.init();
 };
 
 // 请保留版权说明
