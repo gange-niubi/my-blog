@@ -1,6 +1,6 @@
 ---
 title: 小晶找工作（上）
-published: 2026-03-12
+published: 2026-02-12
 description: 小晶觉得上班太无聊，想找个好玩的游戏制作组，于是开始了一段离谱的求职之旅。
 tags: [杂谈, 求职, 游戏开发, 逆向]
 category: 杂谈
