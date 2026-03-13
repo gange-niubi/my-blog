@@ -572,7 +572,7 @@ function calcRoleSkills(role: string, v: CalcVars, ba: BaseAttacks, fire: boolea
 
     case "斩业星熊": {
       const fa = ba.斩业星熊 + v.白值;
-      const spd = Math.max(600, v.攻速);
+      const spd = Math.min(600, v.攻速);
       const iv = interval(1.6, spd);
       const dph = fa * (v.局外 + v.重装局外 + v.近战) * (v.局内 + 2.8);
       const dmg = Math.max(dph * 0.05, dph * (1 - v.敌人法抗 / 100));
