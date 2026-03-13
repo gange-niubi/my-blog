@@ -1,0 +1,33 @@
+---
+import MainGridLayout from "../layouts/MainGridLayout.astro";
+import ArknightsCalc from "../components/ArknightsCalc.svelte";
+---
+
+<MainGridLayout
+  title="界园肉鸽伤害计算器"
+  description="明日方舟界园肉鸽模式伤害速算工具，支持17名干员、60+件藏品的伤害计算"
+>
+  <div class="flex w-full rounded-(--radius-large) overflow-hidden relative">
+    <div class="card-base z-10 px-6 py-6 relative w-full">
+      <!-- 页面标题 -->
+      <div class="flex flex-col items-start justify-center mb-6">
+        <div class="flex items-center gap-3 mb-2">
+          <h1
+            class="text-3xl font-bold text-90 relative
+                   before:w-1 before:h-7 before:rounded-md before:bg-(--primary)
+                   before:absolute before:top-1/2 before:-translate-y-1/2 before:-left-4"
+          >
+            界园肉鸽伤害计算器
+          </h1>
+        </div>
+        <p class="text-sm text-60">
+          明日方舟 · 界园肉鸽专用伤害速算工具 &nbsp;|&nbsp; 支持 17 名干员 · 60+ 件藏品
+          &nbsp;|&nbsp; 原版制作：<span class="text-70">@云音梦歌</span>
+        </p>
+      </div>
+
+      <!-- 计算器主体 -->
+      <ArknightsCalc client:load />
+    </div>
+  </div>
+</MainGridLayout>

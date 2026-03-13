@@ -284,6 +284,7 @@ export const navBarConfig: NavBarConfig = {
 				LinkPreset.Timeline,
 				LinkPreset.Anime,
 				{ name: "设备", url: "/devices/", icon: "material-symbols:devices" },
+				{ name: "界园计算器", url: "/arknights-calc/", icon: "material-symbols:calculate" },
 			],
 		},
 	],
